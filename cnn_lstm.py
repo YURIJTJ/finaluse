@@ -1,7 +1,9 @@
 #This open source code is from a project in github https://github.com/dennybritz/cnn-text-classification-tf
 import tensorflow as tf
 import numpy as np
-from tensorflow.python.ops import rnn, rnn_cell
+from tensorflow.contrib import rnn
+from tensorflow.contrib.rnn.python.ops import rnn_cell
+#from tensorflow.python.ops import rnn, rnn_cell
 
 class TextCNN(object):
     """
@@ -53,7 +55,7 @@ class TextCNN(object):
 
         # Combine all the pooled features
         num_filters_total = num_filters * len(filter_sizes)
-        self.h_pool = tf.concat(pooled_outputs, 3)
+        self.h_pool = tf.concat(3, pooled_outputs)
         self.h_pool_flat = tf.reshape(self.h_pool, [-1, num_filters_total])
 
 
@@ -97,7 +99,7 @@ class TextCNN(object):
         #LSTM
         layer_flat, num_features = flatten_layer(self.h_pool_flat)  
         layer_fc1 = new_fc_layer(input=layer_flat, num_inputs=num_features,num_outputs=num_features,use_relu=True)  
-        layer_fc1_split=tf.split(layer_fc1,384,1)  
+        layer_fc1_split=tf.split(1,384,layer_fc1)  
         with tf.variable_scope('lstm'):  
             lstm=tf.contrib.rnn.BasicLSTMCell(num_unitlstm,forget_bias=1.0)  
         with tf.variable_scope('RNN'):  
