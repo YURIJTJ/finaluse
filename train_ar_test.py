@@ -23,10 +23,10 @@ from tensorflow.contrib import learn
 
 # Indicates the path of the original data file, and 10% of the dataset
 tf.flags.DEFINE_float("dev_sample_percentage", 0.01,"percentage")
-tf.flags.DEFINE_string("A_data_file", "/home/yuri/article/testt/4classdata/AA.txt", "Data source for the A data.")
-tf.flags.DEFINE_string("B_data_file", "/home/yuri/article/testt/4classdata/BB.txt", "Data source for the B data.")
-tf.flags.DEFINE_string("C_data_file", "/home/yuri/article/testt/4classdata/CC.txt", "Data source for the C data.")
-tf.flags.DEFINE_string("D_data_file", "/home/yuri/article/testt/4classdata/DD.txt", "Data source for the D data.")
+tf.flags.DEFINE_string("A_data_file", "/home/yuri/finaluse/AA.txt", "Data source for the A data.")
+tf.flags.DEFINE_string("B_data_file", "/home/yuri/finaluse/BB.txt", "Data source for the B data.")
+tf.flags.DEFINE_string("C_data_file", "/home/yuri/finaluse/CC.txt", "Data source for the C data.")
+tf.flags.DEFINE_string("D_data_file", "/home/yuri/finaluse/DD.txt", "Data source for the D data.")
 
 # Model Hyperparameters
 tf.flags.DEFINE_integer("embedding_dim", 128, "Dimensionality of character embedding (default: 128)")
@@ -39,7 +39,7 @@ tf.flags.DEFINE_float("l2_reg_lambda", 0.0, "L2 regularization lambda (default: 
 # Training parameters
 # batchsize is 64，20 epochs，calculate and save the performance on the test set every 100 steps
 tf.flags.DEFINE_integer("batch_size", 1, "Batch Size (default: 64)")
-tf.flags.DEFINE_integer("num_epochs", 3, "Number of training epochs (default: 200)")
+tf.flags.DEFINE_integer("num_epochs", 6, "Number of training epochs (default: 200)")
 tf.flags.DEFINE_integer("evaluate_every", 100, "Evaluate model on dev set after this many steps (default: 100)")
 tf.flags.DEFINE_integer("checkpoint_every", 100, "Save model after this many steps (default: 100)")
 tf.flags.DEFINE_integer("num_checkpoints", 5, "Number of checkpoints to store (default: 5)")
